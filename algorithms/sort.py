@@ -22,8 +22,8 @@ def selection_sort(array: list):
     """
     Iterate through an array and search for the index of the number
     with the lowest value. At the end of the iteration swap the first number
-    of the iteration with the lower number. This algorithm is 2x faster than
-    bubble sort even though Big O doesn't reflect it.
+    of the iteration with the lower number. We then iterate again through the rest of the array.
+    This algorithm is 2x faster than bubble sort even though Big O doesn't reflect it.
     Time complexity: O(N^2)
     """
     for i in range(len(array)):
