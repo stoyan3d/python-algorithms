@@ -36,3 +36,30 @@ def selection_sort(array: list):
             array[i], array[lowest_value_index] = array[lowest_value_index], array[i]
 
     return array
+
+
+def insertion_sort(array: list):
+    """
+    Iterate through each number of the array starting from index 1
+    and check if it's bigger than the previous ones. If a bigger one is found,
+    shift the number to the left.
+    This algorithm runs faster than selection sort in best case scenarios
+    compared to selection sort but slower in worst case scenarios.
+    It's most effective with mostly sorted arrays.
+    Time complexity: O(N^2)
+    """
+
+    for i in range(1, len(array)):
+        position_index = i - 1
+        temp_value = array[i]
+
+        while position_index >= 0:
+            if temp_value < array[position_index]:
+                array[position_index + 1] = array[position_index]
+                position_index -= 1
+            else:
+                break
+
+            array[position_index + 1] = temp_value
+
+    return array
