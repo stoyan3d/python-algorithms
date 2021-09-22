@@ -14,7 +14,11 @@ def is_sorted(array: list):
 
 class TestSort(unittest.TestCase):
     def test_bubble_sort(self):
-        array = [1, 4, 15, 6, 6, 18, 12, 10]
-        sorted_array = [1, 4, 6, 6, 10, 12, 15, 18]
-        self.assertListEqual(sorted_array, bubble_sort(array))
+        array_1 = [1, 4, 15, 6, 6, 18, 12, 10]
+        self.assertTrue(is_sorted(bubble_sort(array_1)))
 
+        array_2 = [4, 2, 7, 1, 3]
+        self.assertTrue(is_sorted(bubble_sort(array_2)))
+
+        array_3 = [1, 4, 15, 6, 6, 18, 12, 10, 2, 7]
+        self.assertTrue(is_sorted(bubble_sort(array_3)))

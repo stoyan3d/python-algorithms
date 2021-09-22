@@ -1,3 +1,9 @@
 # PyCharm project files
 .idea
+
+# Visual Studio Code project files
+.vscode/settings.json
+
+# Python cache files
 algorithms/__pycache__
+tests/__pycache__
