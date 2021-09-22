@@ -1,4 +1,5 @@
-from algorithms.sort import bubble_sort, selection_sort
+from random import randint
+from algorithms.sort import bubble_sort, selection_sort, insertion_sort
 
 import unittest
 
@@ -11,24 +12,23 @@ def is_sorted(array: list):
 
     return True
 
+def get_random_array(array_length: int = 10):
+    """A helper function for generating an unsorted array of random int values."""
+    return [randint(0, 100) for i in range(array_length)]
+
 
 class TestSort(unittest.TestCase):
     def test_bubble_sort(self):
-        array_1 = [1, 4, 15, 6, 6, 18, 12, 10]
-        self.assertTrue(is_sorted(bubble_sort(array_1)))
-
-        array_2 = [4, 2, 7, 1, 3]
-        self.assertTrue(is_sorted(bubble_sort(array_2)))
-
-        array_3 = [18, 5, 15, 6, 6, 16, 12, 10, 2, 7]
-        self.assertTrue(is_sorted(bubble_sort(array_3)))
+        self.assertTrue(is_sorted(bubble_sort(get_random_array())))
+        self.assertTrue(is_sorted(bubble_sort(get_random_array())))
+        self.assertTrue(is_sorted(bubble_sort(get_random_array())))
 
     def test_selection_sort(self):
-        array_1 = [1, 4, 15, 6, 6, 18, 12, 10]
-        self.assertTrue(is_sorted(selection_sort(array_1)))
+        self.assertTrue(is_sorted(selection_sort(get_random_array())))
+        self.assertTrue(is_sorted(selection_sort(get_random_array())))
+        self.assertTrue(is_sorted(selection_sort(get_random_array())))
 
-        array_2 = [4, 2, 7, 1, 3]
-        self.assertTrue(is_sorted(selection_sort(array_2)))
-
-        array_3 = [18, 5, 15, 6, 6, 16, 12, 10, 2, 7]
-        self.assertTrue(is_sorted(selection_sort(array_3)))
+    def test_insertion_sort(self):
+        self.assertTrue(is_sorted(insertion_sort(get_random_array())))
+        self.assertTrue(is_sorted(insertion_sort(get_random_array())))
+        self.assertTrue(is_sorted(insertion_sort(get_random_array())))
