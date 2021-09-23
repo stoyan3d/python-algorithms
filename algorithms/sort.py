@@ -1,4 +1,6 @@
-def bubble_sort(array: list):
+from typing import List
+
+def bubble_sort(array: List[float]):
     """ A sorting algorithm that iterates through an array
     and swaps two items if the first is smaller than the next.
     Time complexity: O(N^2)
@@ -18,7 +20,7 @@ def bubble_sort(array: list):
     return array
 
 
-def selection_sort(array: list):
+def selection_sort(array: List[float]):
     """
     Iterate through an array and search for the index of the number
     with the lowest value. At the end of the iteration swap the first number
@@ -38,7 +40,7 @@ def selection_sort(array: list):
     return array
 
 
-def insertion_sort(array: list):
+def insertion_sort(array: List[float]):
     """
     Iterate through each number of the array starting from index 1
     and check if it's bigger than the previous ones. If a bigger one is found,

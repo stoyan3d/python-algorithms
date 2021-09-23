@@ -1,5 +1,8 @@
 
-def linear_search(array: list, query: int):
+from typing import List
+
+
+def linear_search(array: List[int], query: int):
     """Linear search works on any array.
     It returns the index of the given number in the array if it finds it.
     Returns -1 if it doesn't.
@@ -13,7 +16,7 @@ def linear_search(array: list, query: int):
     return -1
 
 
-def binary_search(ordered_array: list, query: int):
+def binary_search(ordered_array: List[int], query: int):
     """Binary search works on ordered arrays.
     It returns the index of the given number in the array if it finds it.
     Returns -1 if it doesn't.

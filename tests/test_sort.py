@@ -1,10 +1,11 @@
 from random import randint
+from typing import List
 from algorithms.sort import bubble_sort, selection_sort, insertion_sort
 
 import unittest
 
 
-def is_sorted(array: list):
+def is_sorted(array: List[float]):
     """A helper function to determine if an array is sorted"""
     for i in range(len(array) - 1):
         if array[i] > array[i + 1]:
