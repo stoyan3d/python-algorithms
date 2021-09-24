@@ -3,6 +3,7 @@
 
 # Visual Studio Code project files
 .vscode/settings.json
+.vscode/launch.json
 
 # Python cache files
 */__pycache__/
