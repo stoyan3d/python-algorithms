@@ -1,5 +1,6 @@
 from typing import List
 
+
 def bubble_sort(array: List[float]):
     """ A sorting algorithm that iterates through an array
     and swaps two items if the first is smaller than the next.
@@ -65,3 +66,55 @@ def insertion_sort(array: List[float]):
             array[position_index + 1] = temp_value
 
     return array
+
+
+def quick_sort(array: List[float]):
+    return quick_sort_recursive(array, 0, len(array) - 1)
+
+
+def quick_sort_recursive(array: List[float], left_index: int, right_index: int) -> List[float]:
+    """
+    A recursive partition algorithm that results in a sorted array.
+    It's the most popular algorithm in programming languages
+    Time complexity best and average case: O(N * log N)
+    Time complexity worst case: O(N^2)
+    """
+    if right_index - left_index <= 0:
+        return array
+
+    pivot_index = partition(array, left_index, right_index)
+
+    quick_sort_recursive(array, left_index, pivot_index - 1)
+    quick_sort_recursive(array, pivot_index + 1, right_index)
+
+    return array
+
+
+def partition(array: List[float], left_pointer: int, right_pointer: int) -> int:
+    """
+    Select the last element of the array and divide the array between numbers smaller than the selected element
+    and bigger than the selected element. Return the index of the pivot.
+    """
+    pivot_index = right_pointer
+    pivot_value = array[pivot_index]
+
+    right_pointer -= 1
+
+    # TODO This loop runs infinitely and it's a bit hard to read. Maybe we can replace it with a for loop
+    while True:
+        while array[left_pointer] < pivot_value:
+            left_pointer += 1
+
+        while array[right_pointer] > pivot_value:
+            left_pointer -= 1
+
+        if left_pointer >= right_pointer:
+            break
+        else:
+            array[left_pointer], array[right_pointer] = array[right_pointer], array[left_pointer]
+
+            left_pointer += 1
+
+        array[left_pointer], array[pivot_index] = array[pivot_index], array[left_pointer]
+
+        return left_pointer
