@@ -1,4 +1,4 @@
-from algorithms.search import binary_search, linear_search
+from algorithms.search import binary_search, linear_search, quick_select
 
 import unittest
 
@@ -19,6 +19,12 @@ class TestSearch(unittest.TestCase):
         self.assertEqual(-1, binary_search(array, 22))
         self.assertEqual(-1, binary_search(array, 4))
 
+    def test_quick_select(self):
+        array = [1, 3, 4, 7, 6, 5, 2]
+        # Find the median
+        self.assertEqual(4, quick_select(array, 3))
+        # Find the lowest value
+        self.assertEqual(1, quick_select(array, 0))
+        # Find the highest value
+        self.assertEqual(7, quick_select(array, len(array)-1))
 
-if __name__ == '__main__':
-    unittest.main()
