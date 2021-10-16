@@ -100,21 +100,19 @@ def partition(array: List[float], left_pointer: int, right_pointer: int) -> int:
 
     right_pointer -= 1
 
-    # TODO This loop runs infinitely and it's a bit hard to read. Maybe we can replace it with a for loop
     while True:
         while array[left_pointer] < pivot_value:
             left_pointer += 1
 
         while array[right_pointer] > pivot_value:
-            left_pointer -= 1
+            right_pointer -= 1
 
         if left_pointer >= right_pointer:
             break
         else:
             array[left_pointer], array[right_pointer] = array[right_pointer], array[left_pointer]
 
-            left_pointer += 1
+# The final swap with the pivot
+    array[left_pointer], array[pivot_index] = array[pivot_index], array[left_pointer]
 
-        array[left_pointer], array[pivot_index] = array[pivot_index], array[left_pointer]
-
-        return left_pointer
+    return left_pointer
