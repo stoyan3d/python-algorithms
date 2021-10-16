@@ -1,13 +1,12 @@
 class Node:
-    next_node = None
-    data = None
-
     def __init__(self, data):
         self.data = data
+        self.next_node = None
 
 
 class LinkedList:
-    first_node = None
+    def __init__(self):
+        self.first_node = None
 
     def read(self, index: int):
         if not self.first_node:

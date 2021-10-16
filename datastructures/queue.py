@@ -1,4 +1,4 @@
-class Queue():
+class Queue:
     @property
     def size(self) -> int:
         return len(self.data)
@@ -7,7 +7,7 @@ class Queue():
     def is_empty(self) -> bool:
         return self.size == 0
 
-    def __init__(self) -> None:
+    def __init__(self):
         self.data = []
 
     def enqueue(self, element):
