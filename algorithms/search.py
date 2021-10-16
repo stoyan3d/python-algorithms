@@ -1,9 +1,8 @@
-
 from typing import List
 from .sort import partition
 
 
-def linear_search(array: List[int], query: int):
+def linear_search(array: List[int], query: int) -> int:
     """Linear search works on any array.
     It returns the index of the given number in the array if it finds it.
     Returns -1 if it doesn't.
@@ -17,7 +16,7 @@ def linear_search(array: List[int], query: int):
     return -1
 
 
-def binary_search(ordered_array: List[int], query: int):
+def binary_search(ordered_array: List[int], query: int) -> int:
     """Binary search works on ordered arrays.
     It returns the index of the given number in the array if it finds it.
     Returns -1 if it doesn't.
@@ -40,23 +39,25 @@ def binary_search(ordered_array: List[int], query: int):
 
     return -1
 
-def quick_select(array:List[float], nth_element: int) -> float:
+
+def quick_select(array: List[float], nth_element: int) -> float:
     return quick_select_recursive(array, nth_element, 0, len(array) - 1)
 
-def quick_select_recursive(array:List[float], nth_element: int, left_index: int, right_index: int):
+
+def quick_select_recursive(array: List[float], nth_element: int, left_index: int, right_index: int) -> float:
     """
     Used for finding the nth element in an array. It uses a combination
     of partition and binary search.
     Time complexity: O(N)
     """
-    if right_index - left_index <=0:
+    if right_index - left_index <= 0:
         return array[left_index]
-    
+
     pivot_index = partition(array, left_index, right_index)
 
     if nth_element < pivot_index:
-        return quick_select_recursive(array, nth_element, left_index, pivot_index-1)
+        return quick_select_recursive(array, nth_element, left_index, pivot_index - 1)
     elif nth_element > pivot_index:
-        return quick_select_recursive(array, nth_element, pivot_index+1, right_index)
+        return quick_select_recursive(array, nth_element, pivot_index + 1, right_index)
     else:
         return array[pivot_index]
