@@ -96,6 +96,16 @@ class LinkedList:
 
 
 class DoublyLinkedList:
+    @property
+    def size(self) -> int:
+        current_node = self.first_node
+        current_index = 0
+        while current_node:
+            current_node = current_node.next_node
+            current_index += 1
+
+        return current_index
+
     def __init__(self):
         self.first_node = None
         self.last_node = None
@@ -160,8 +170,9 @@ class DoublyLinkedList:
             raise IndexError('Linked List index out of range')
 
         if index == 0:
+            removed_node = self.first_node
             self.first_node = self.first_node.next_node
-            return
+            return removed_node.data
 
         current_node = self.first_node
         for i in range(index - 1):
