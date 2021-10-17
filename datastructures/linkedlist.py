@@ -28,6 +28,16 @@ class LinkedList:
 
         return current_node.data
 
+    def read_last(self):
+        current_node = self.first_node
+        while current_node and current_node.next_node:
+            current_node = current_node.next_node
+
+        if current_node:
+            return current_node.data
+        else:
+            return None
+
     def insert(self, index: int, value):
         new_node = LinkedListNode(value)
 
@@ -93,6 +103,30 @@ class LinkedList:
             current_node.next_node = current_node.next_node.next_node
         else:
             raise IndexError('Linked List index out of range')
+
+    def print(self):
+        current_node = self.first_node
+        node_data = []
+        while current_node:
+            node_data.append(current_node.data)
+            current_node = current_node.next_node
+
+        print(node_data)
+
+    def reverse(self):
+        if not self.first_node:
+            return
+
+        current_node = self.first_node
+        nodes = []
+        while current_node:
+            nodes.append(current_node)
+            current_node = current_node.next_node
+
+        self.first_node = nodes[-1]
+        for i in range(len(nodes) - 1, 0, -1):
+            if i >= 1:
+                nodes[i].next_node = nodes[i - 1]
 
 
 class DoublyLinkedList:
@@ -187,3 +221,20 @@ class DoublyLinkedList:
         else:
             raise IndexError('Linked List index out of range')
 
+    def print(self):
+        current_node = self.first_node
+        node_data = []
+        while current_node:
+            node_data.append(current_node.data)
+            current_node = current_node.next_node
+
+        print(node_data)
+
+    def print_reversed(self):
+        current_node = self.last_node
+        node_data = []
+        while current_node:
+            node_data.append(current_node.data)
+            current_node = current_node.previous_node
+
+        print(node_data)

@@ -7,7 +7,6 @@ class TestLinkedList(unittest.TestCase):
         self.linked_list = LinkedList()
 
     def test_append(self):
-        self.linked_list = LinkedList()
         data = 'something'
         self.linked_list.append(data)
         self.assertEqual(data, self.linked_list.read(0))
@@ -21,31 +20,27 @@ class TestLinkedList(unittest.TestCase):
         self.assertEqual(data, self.linked_list.read(2))
 
     def test_read(self):
-        self.linked_list = LinkedList()
         self.linked_list.append(20)
         self.assertEqual(20, self.linked_list.read(0))
         self.linked_list.append(10)
         self.assertEqual(10, self.linked_list.read(1))
 
     def test_read_index_out_of_range(self):
-        self.linked_lists = LinkedList()
-
         with self.assertRaises(IndexError) as c:
-            self.linked_lists.read(0)
+            self.linked_list.read(0)
         self.assertIn('Linked List index out of range', str(c.exception))
 
-        self.linked_lists.append('hello')
+        self.linked_list.append('hello')
 
         with self.assertRaises(IndexError) as c:
-            self.linked_lists.read(3)
+            self.linked_list.read(3)
         self.assertIn('Linked List index out of range', str(c.exception))
 
         with self.assertRaises(IndexError) as c:
-            self.linked_lists.read(1)
+            self.linked_list.read(1)
         self.assertIn('Linked List index out of range', str(c.exception))
 
     def test_insert(self):
-        self.linked_list = LinkedList()
         self.linked_list.append(3)
         self.linked_list.append(6)
         self.linked_list.append(8)
@@ -61,7 +56,6 @@ class TestLinkedList(unittest.TestCase):
         self.assertEqual(3, self.linked_list.read(1))
 
     def test_insert_with_bigger_index(self):
-        self.linked_list = LinkedList()
         self.linked_list.append(3)
         self.linked_list.append(6)
         self.linked_list.append(8)
@@ -70,7 +64,6 @@ class TestLinkedList(unittest.TestCase):
         self.assertEqual('test', self.linked_list.read(3))
 
     def test_index_of(self):
-        self.linked_list = LinkedList()
         self.linked_list.append(3)
         self.linked_list.append(6)
         self.linked_list.append(8)
@@ -81,7 +74,6 @@ class TestLinkedList(unittest.TestCase):
         self.assertIsNone(self.linked_list.index_of(10))
 
     def test_delete(self):
-        self.linked_list = LinkedList()
         self.linked_list.append(3)
         self.linked_list.append(6)
         self.linked_list.append(8)
@@ -94,7 +86,6 @@ class TestLinkedList(unittest.TestCase):
         self.assertEqual(10, self.linked_list.read(1))
 
     def test_delete_out_of_range(self):
-        self.linked_list = LinkedList()
         with self.assertRaises(IndexError) as c:
             self.linked_list.delete(0)
         self.assertIn('Linked List index out of range', str(c.exception))
@@ -111,7 +102,48 @@ class TestLinkedList(unittest.TestCase):
             self.linked_list.delete(10)
         self.assertIn('Linked List index out of range', str(c.exception))
 
+    def test_print(self):
+        self.linked_list.append('apple')
+        self.linked_list.append('orange')
+        self.linked_list.append('pear')
+        self.linked_list.print()
+
+    def test_read_last(self):
+        self.linked_list.append(3)
+        self.linked_list.append(6)
+        self.linked_list.append(8)
+        self.assertEqual(8, self.linked_list.read_last())
+
+        self.linked_list.delete(2)
+        self.assertEqual(6, self.linked_list.read_last())
+
+    def test_reverse(self):
+        self.linked_list.append('a')
+        self.linked_list.append('b')
+        self.linked_list.append('c')
+        self.linked_list.reverse()
+
+        self.assertEqual('c', self.linked_list.read(0))
+        self.assertEqual('b', self.linked_list.read(1))
+        self.assertEqual('a', self.linked_list.read(2))
+
 
 class TestDoublyLinkedList(TestLinkedList):
     def setUp(self) -> None:
         self.linked_list = DoublyLinkedList()
+
+    def test_print_reversed(self):
+        self.linked_list.append('apple')
+        self.linked_list.append('orange')
+        self.linked_list.append('pear')
+        self.linked_list.print_reversed()
+
+    def test_read_last(self):
+        self.linked_list.append('a')
+        self.linked_list.append('b')
+        self.linked_list.append('c')
+
+        self.assertEqual('c', self.linked_list.last_node.data)
+
+    def test_reverse(self):
+        pass
