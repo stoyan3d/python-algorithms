@@ -82,6 +82,28 @@ class BinarySearchTree:
             node.left = self.lift(node.left, node_to_delete)
             return node
 
+    def traverse_and_print_in_order(self, node: TreeNode) -> None:
+        if node is None:
+            return
 
-    def traverse_and_print(self, value):
-        pass
+        self.traverse_and_print_in_order(node.left)
+        print(node.value)
+        self.traverse_and_print_in_order(node.right)
+
+    def max(self) -> float:
+        return self.max_recursive(self.root)
+
+    def max_recursive(self, node: TreeNode) -> float:
+        if node.right:
+            return self.max_recursive(node.right)
+        else:
+            return node.value
+
+    def min(self) -> float:
+        return self.min_recursive(self.root)
+
+    def min_recursive(self, node: TreeNode) -> float:
+        if node.left:
+            return self.min_recursive(node.left)
+        else:
+            return node.value
