@@ -41,17 +41,17 @@ class Heap:
 
     def trickle_down(self, index: int) -> None:
         while self.get_left(index):
-            min_child_index = self.get_min_child_index(index)
-            if self.data[index] < self.data[min_child_index]:
-                self.data[index], self.data[min_child_index] = self.data[min_child_index], self.data[index]
+            max_child_index = self.get_max_child_index(index)
+            if self.data[index] < self.data[max_child_index]:
+                self.data[index], self.data[max_child_index] = self.data[max_child_index], self.data[index]
 
-            index = min_child_index
+            index = max_child_index
 
-    def get_min_child_index(self, index: int) -> int:
+    def get_max_child_index(self, index: int) -> int:
         if not self.get_right(index):
             return self.get_left_index(index)
         
-        if self.get_left(index) > self.get_right(index):
+        if self.get_left(index) < self.get_right(index):
             return self.get_right_index(index)
         else:
             return self.get_left_index(index)

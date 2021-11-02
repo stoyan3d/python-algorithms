@@ -58,12 +58,12 @@ class TestHeap(unittest.TestCase):
 
         self.assertEqual(1, heap.get_right(0))
 
-    def test_get_min_child(self):
+    def test_get_max_child(self):
         heap = Heap()
 
         heap.insert(3)
         heap.insert(25)
-        self.assertEqual(1, heap.get_min_child_index(0))
+        self.assertEqual(1, heap.get_max_child_index(0))
 
         heap.insert(1)
-        self.assertEqual(2, heap.get_min_child_index(0))
+        self.assertEqual(1, heap.get_max_child_index(0))
