@@ -1,10 +1,10 @@
 from __future__ import annotations
 from typing import Optional
-from datastructures.graph import Vertex
+from datastructures.graph import GraphVertex
 from datastructures.queue import DoublyLinkedQueue
 
 
-def depth_first_search(vertex: Vertex, search_value, visited_vertices=None) -> Optional[Vertex]:
+def depth_first_search(vertex: GraphVertex, search_value, visited_vertices=None) -> Optional[GraphVertex]:
     """This algorithm moves away from the starting vertex as quickly as possible.
     It relies on recursion."""
     if visited_vertices is None:
@@ -29,7 +29,7 @@ def depth_first_search(vertex: Vertex, search_value, visited_vertices=None) -> O
     return None
 
 
-def breadth_first_search(vertex: Vertex, search_value) -> Optional[Vertex]:
+def breadth_first_search(vertex: GraphVertex, search_value) -> Optional[GraphVertex]:
     """This algorithm starts from all adjacent vertices and gradually moves away.
     It doesn't use recursion but instead relies on the Queue data structure."""
 

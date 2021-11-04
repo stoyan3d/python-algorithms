@@ -1,13 +1,13 @@
 import unittest
-from datastructures.graph import Vertex
+from datastructures.graph import GraphVertex
 from algorithms.graph_search import depth_first_search, breadth_first_search
 
 
 class TestVertex(unittest.TestCase):
     def setUp(self):
-        self.root = Vertex("Mohammad")
-        felicia = Vertex("Felicia")
-        zei = Vertex("Zei")
+        self.root = GraphVertex("Mohammad")
+        felicia = GraphVertex("Felicia")
+        zei = GraphVertex("Zei")
 
         self.root.add_adjacent(felicia)
         self.root.add_adjacent(zei)
