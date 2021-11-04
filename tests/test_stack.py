@@ -1,6 +1,6 @@
 from datastructures.stack import Stack
-
 import unittest
+
 
 class TestStack(unittest.TestCase):
     def test_is_empty_on_stack_with_items(self):
@@ -23,14 +23,14 @@ class TestStack(unittest.TestCase):
         stack.push(5)
         stack.push(9)
 
-        self.assertEquals(3, stack.size)
+        self.assertEqual(3, stack.size)
 
     def test_read_on_stack_with_items(self):
         stack = Stack()
         stack.push('a')
         stack.push('c')
 
-        self.assertEquals('c', stack.read())
+        self.assertEqual('c', stack.read())
 
     def test_read_on_empty_stack(self):
         stack = Stack()
@@ -66,10 +66,7 @@ class TestStack(unittest.TestCase):
         stack.push('b')
         stack.push('c')
 
-        sequence = []
-        sequence.append(stack.pop())
-        sequence.append(stack.pop())
-        sequence.append(stack.pop())
+        sequence = [stack.pop(), stack.pop(), stack.pop()]
 
         self.assertListEqual(['c', 'b', 'a'], sequence)
 

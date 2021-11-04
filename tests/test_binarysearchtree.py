@@ -43,28 +43,28 @@ class TestBinarySearchTree(unittest.TestCase):
         bst.insert(2)
         bst.insert(7)
         bst.insert(5)
-        self.assertEquals(7, bst.max())
+        self.assertEqual(7, bst.max())
 
         bst.insert(20)
-        self.assertEquals(20, bst.max())
+        self.assertEqual(20, bst.max())
 
         bst.insert(8)
         bst.insert(23)
-        self.assertEquals(23, bst.max())
+        self.assertEqual(23, bst.max())
 
     def test_min(self):
         bst = BinarySearchTree()
         bst.insert(2)
         bst.insert(7)
         bst.insert(5)
-        self.assertEquals(2, bst.min())
+        self.assertEqual(2, bst.min())
 
         bst.insert(20)
-        self.assertEquals(2, bst.min())
+        self.assertEqual(2, bst.min())
 
         bst.insert(1)
         bst.insert(23)
-        self.assertEquals(1, bst.min())
+        self.assertEqual(1, bst.min())
 
     def test_traverse(self):
         bst = BinarySearchTree()
@@ -76,3 +76,4 @@ class TestBinarySearchTree(unittest.TestCase):
         bst.insert(4)
         bst.insert(10)
         bst.traverse_and_print_in_order(bst.root)
+        
