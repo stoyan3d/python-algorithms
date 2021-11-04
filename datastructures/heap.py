@@ -1,3 +1,6 @@
+from typing import Optional
+
+
 class Heap:
     """A heap is a loosly sorted tree structure that is has efficient insertion and largest
     element deletion. It is the most efficient data structure for Priority Queues.
@@ -17,14 +20,15 @@ class Heap:
                 self.data[index], self.data[parent_index] = self.data[parent_index], self.data[index]
             index = self.get_parent_index(index)
 
-    def get_parent(self, index: int) -> float:
+    def get_parent(self, index: int) -> Optional[float]:
         if index <= 0:
             return None
 
         parent_index = self.get_parent_index(index)
         return self.data[parent_index]
 
-    def get_parent_index(self, index: int) -> int:
+    @staticmethod
+    def get_parent_index(index: int) -> int:
         return int((index - 1) / 2)
 
     def read(self) -> float:
@@ -56,18 +60,19 @@ class Heap:
         else:
             return self.get_left_index(index)
 
-    def get_left(self, index: int) -> float:
+    def get_left(self, index: int) -> Optional[float]:
         left_index = self.get_left_index(index)
 
         if len(self.data) > left_index:
             return self.data[left_index]
         else:
             return None
-    
-    def get_left_index(self, index: int) -> float:
+
+    @staticmethod
+    def get_left_index(index: int) -> int:
         return 2 * index + 1
 
-    def get_right(self, index: int) -> float:
+    def get_right(self, index: int) -> Optional[float]:
         right_index = self.get_right_index(index)
         
         if len(self.data) > right_index:
@@ -75,5 +80,6 @@ class Heap:
         else:
             return None
 
-    def get_right_index(self, index: int) -> float:
+    @staticmethod
+    def get_right_index(index: int) -> int:
         return 2 * index + 2

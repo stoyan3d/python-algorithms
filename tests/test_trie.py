@@ -25,6 +25,7 @@ class TestTrie(unittest.TestCase):
     def test_autocomplete(self):
         self.assertListEqual(["got", "gotten"], self.trie.auto_complete("got"))
         self.assertListEqual(["hall", "ham", "hammer"], self.trie.auto_complete("ha"))
+        self.assertListEqual([], self.trie.auto_complete("baz"))
 
     def test_autocorrect(self):
         self.assertEqual("hammer", self.trie.auto_correct("hammed"))

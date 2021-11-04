@@ -1,3 +1,6 @@
+from typing import Optional
+
+
 class TreeNode:
     def __init__(self, value: float) -> None:
         self.value = value
@@ -31,14 +34,12 @@ class BinarySearchTree:
         else:
             return self.search_recursive(value, node.right)            
 
-
     def insert(self, value: float) -> bool:
         if self.root:
             return self.insert_recursive(value, self.root)
         else:
             self.root = TreeNode(value)
             return True
-        
 
     def insert_recursive(self, value: float, node: TreeNode) -> bool:
         if value == node.value:
@@ -60,7 +61,7 @@ class BinarySearchTree:
     def delete(self, value):
         self.delete_recursive(value, self.root)
 
-    def delete_recursive(self, value: float, node: TreeNode) -> TreeNode:
+    def delete_recursive(self, value: float, node: TreeNode) -> Optional[TreeNode]:
         if node is None:
             return None
         elif value < node.value:

@@ -10,6 +10,7 @@ class Trie:
     """A trie is an efficient tree data structure for doing autocomplete and autocorrect.
     Both operations are done with time complexity O(K) where K is the length of the
     word we pass to the algorithm."""
+
     def __init__(self) -> None:
         self.root = TrieNode()
 
@@ -28,8 +29,8 @@ class Trie:
     def auto_complete(self, prefix: str) -> List[str]:
         current_node = self.search(prefix)
         if not current_node:
-            return None
-        return self.collect_all_words_recursive(current_node, word=prefix, words=[])
+            return []
+        return self.collect_all_words_recursive(current_node, word=prefix)
 
     def search(self, word: str) -> Optional[TrieNode]:
         current_node = self.root
@@ -42,7 +43,10 @@ class Trie:
 
         return current_node
 
-    def collect_all_words_recursive(self, node: TrieNode=None, word="", words=[]) -> None:
+    def collect_all_words_recursive(self, node: TrieNode = None, word="", words: List[str] = None) -> List[str]:
+        if words is None:
+            words = []
+
         current_node = node or self.root
 
         for key, child_node in current_node.children.items():
