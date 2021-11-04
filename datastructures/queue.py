@@ -1,5 +1,6 @@
 from .linkedlist import DoublyLinkedList
 
+
 class Queue:
     @property
     def size(self) -> int:
@@ -23,7 +24,7 @@ class Queue:
 
     def read(self):
         if self.is_empty:
-            raise IndexError('The queue is empty')
+            return None
         else:
             return self.data[0]
 
@@ -51,7 +52,7 @@ class DoublyLinkedQueue:
 
     def read(self):
         if self.is_empty:
-            raise IndexError('The queue is empty')
+            return None
         else:
             return self.data.read(0)
 

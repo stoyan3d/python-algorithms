@@ -25,9 +25,7 @@ class TestQueue(unittest.TestCase):
         self.assertEqual(3, self.queue.size)
 
     def test_read_on_empty_queue(self):
-        with self.assertRaises(IndexError) as c:
-            self.queue.read()
-        self.assertIn('The queue is empty', str(c.exception))
+        self.assertIsNone(self.queue.read())
 
     def test_read_on_stack_with_items(self):
         self.queue.enqueue(2)
