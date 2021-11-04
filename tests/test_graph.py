@@ -16,3 +16,8 @@ class TestVertex(unittest.TestCase):
         self.assertEqual("Zei", self.root.depth_first_search(self.root, "Zei").value)
         self.assertEqual("Felicia", self.root.depth_first_search(self.root, "Felicia").value)
         self.assertIsNone(self.root.depth_first_search(self.root, "Tom"))
+
+    def test_bfs(self):
+        self.assertEqual("Zei", self.root.breadth_first_search(self.root, "Zei").value)
+        self.assertEqual("Felicia", self.root.breadth_first_search(self.root, "Felicia").value)
+        self.assertIsNone(self.root.breadth_first_search(self.root, "Tom"))
