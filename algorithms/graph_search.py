@@ -80,15 +80,15 @@ def dijkstra_shortest_path(starting: WeightedGraphVertex, destination: WeightedG
                 smallest_weight_previous_vertex_table[adjacent.value] = current_vertex.value
 
         # Pick the next vertex to visit based on the smallest weight
-        # TODO Not sure how to do this one efficiently yet so just sticking to the first unvisited vertex
         if len(unvisited_vertices) > 0:
             current_vertex = unvisited_vertices[0]
+            smallest_weight = smallest_weight_table[current_vertex.value]
+            for vertex in unvisited_vertices:
+                if smallest_weight_table[vertex.value] < smallest_weight:
+                    smallest_weight = smallest_weight_table[vertex.value]
+                    current_vertex = vertex
         else:
             current_vertex = None
-        # smallest_weight = 0
-        # for vertex in unvisited_vertices:
-        #     if smallest_weight_table[vertex.value] < smallest_weight:
-        #         smallest_weight = smallest_weight_table[vertex.value]
 
     shortest_path = []
     current_vertex_value = destination.value
@@ -99,4 +99,3 @@ def dijkstra_shortest_path(starting: WeightedGraphVertex, destination: WeightedG
     shortest_path.append(current_vertex_value)
 
     return shortest_path[::-1]
-
