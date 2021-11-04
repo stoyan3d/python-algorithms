@@ -11,3 +11,12 @@ class GraphVertex:
         if vertex not in self.adjacent:
             self.adjacent.append(vertex)
             self.add_adjacent(self)
+
+
+class WeightedGraphVertex:
+    def __init__(self, value) -> None:
+        self.value = value
+        self.adjacent: dict[WeightedGraphVertex, float] = {}
+
+    def add_adjacent(self, vertex: WeightedGraphVertex, weight: float) -> None:
+        self.adjacent[vertex] = weight
