@@ -29,7 +29,7 @@ def depth_first_search(vertex: Vertex, search_value, visited_vertices=None) -> O
     return None
 
 
-def breadth_first_search(vertex: Vertex, search_value):
+def breadth_first_search(vertex: Vertex, search_value) -> Optional[Vertex]:
     """This algorithm starts from all adjacent vertices and gradually moves away.
     It doesn't use recursion but instead relies on the Queue data structure."""
 
@@ -47,3 +47,5 @@ def breadth_first_search(vertex: Vertex, search_value):
             if not visited_vertices.get(adjacent.value):
                 visited_vertices[adjacent.value] = True
                 queue.enqueue(adjacent)
+
+    return None
